@@ -1,3 +1,6 @@
+body {padding-top: 56px;}
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +38,66 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.makeStyles-paper-2 {
+  color: rgba(37, 106, 87, 0.54);
+  padding: 16px;
+  font-weight: 600;
+  text-align: center;
+  background-color: aquamarine;
+}
+
+.App .andre-color-0{
+  background-color: #ff1744 ;
+}
+.App .andre-color-1{
+  background-color: #f50057 ;
+  /* color: floralwhite; */
+}
+.App .andre-color-2{
+  background-color: #d500f9 ;
+  /* color: floralwhite; */
+}
+.App .andre-color-3{
+  background-color: #ab87fa ;
+  /* color: floralwhite; */
+}
+.App .andre-color-4{
+  background-color: #3d5afe ;
+  /* color: floralwhite; */
+}
+.App .andre-color-5{
+  background-color: #2979ff ;
+  /* color: floralwhite; */
+}
+.App .andre-color-6{
+  background-color: #00b0ff ;
+}
+.App .andre-color-7{
+  background-color: #00e5ff ;
+}
+.App .andre-color-8{
+  background-color: #1de9b6 ;
+}
+.App .andre-color-9{
+  background-color: #00e676 ;
+}
+.App .andre-color-10{
+  background-color: #76ff03 ;
+}
+.App .andre-color-11{
+  background-color: #c6ff00 ;
+}
+.App .andre-color-12{
+  background-color: #ffea00 ;
+}
+.App .andre-color-13{
+  background-color: #ffc400 ;
+}
+.App .andre-color-14{
+  background-color: #ff9100 ;
+}
+.App .andre-color-15{
+  background-color: #ff3d00 ;
 }

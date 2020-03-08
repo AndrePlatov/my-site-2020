@@ -1,24 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SkillsGrid from './components/skills/SkillsGrid';
+import { SkillsNavigator } from './components/skills/SkillsNavigator';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar'
+import { Container, Nav, NavDropdown, Form, Row, Col } from 'react-bootstrap';
+import { FormControl, Button } from '@material-ui/core';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar bg="light" fixed="top">
+        <Container fluid="lg">
+          <Navbar.Brand href="#home">Andre Platov</Navbar.Brand>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#skills">Skills</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <SkillsNavigator></SkillsNavigator>
+
     </div>
   );
 }
