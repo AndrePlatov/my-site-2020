@@ -1,5 +1,13 @@
 body {padding-top: 56px;}
 
+h2 {
+  padding-top: 3rem;
+}
+
+h2:first-letter {
+  text-transform:capitalize;
+}
+
 
 .App {
   text-align: center;
@@ -101,3 +109,9 @@ body {padding-top: 56px;}
 .App .andre-color-15{
   background-color: #ff3d00 ;
 }
+
+
+.bg-black{
+  background-color: antiquewhite;
+}
+
