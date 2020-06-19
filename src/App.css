@@ -115,3 +115,59 @@ h2:first-letter {
   background-color: antiquewhite;
 }
 
+.levelOne.MuiRadio-colorSecondary.Mui-checked{
+
+  color: #31d431;
+}
+
+.levelOne.MuiRadio-colorSecondary.Mui-checked .MuiSvgIcon-root {
+
+  font-size: 1.3rem;
+}
+.levelTwo.MuiRadio-colorSecondary.Mui-checked{
+
+  color: #3154d4;
+}
+.levelTwo.MuiRadio-colorSecondary.Mui-checked .MuiSvgIcon-root {
+
+  font-size: 1.8rem;
+}
+.levelThree.MuiRadio-colorSecondary.Mui-checked{
+
+  color:  #ffc107/*c207ff  ffc107*/;
+}
+.levelThree.MuiRadio-colorSecondary.Mui-checked .MuiSvgIcon-root {
+
+  font-size: 2.4rem;
+}
+
+
+.levelOne.MuiRadio-colorSecondary .MuiSvgIcon-root {
+
+  font-size: 1.3rem;
+}
+.levelTwo.MuiRadio-colorSecondary .MuiSvgIcon-root {
+
+  font-size: 1.8rem;
+}
+.levelThree.MuiRadio-colorSecondary .MuiSvgIcon-root {
+
+  font-size: 2.4rem;
+}
+
+.MuiRadio-root.MuiIconButton-root {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.MuiBox-root.LevelBox {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.MuiDivider-root.Skill {
+  margin-top: 31px;
+}
+
+.MuiCardMedia-root {
+  margin-bottom: 5px;
+}

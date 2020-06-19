@@ -9,9 +9,20 @@ import TableRow from '@material-ui/core/TableRow';
 import { palette } from '@material-ui/system';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Grid, Box, Card, CardContent, Typography, CardMedia } from '@material-ui/core';
+import { Grid, Box, Card, CardContent, Typography, CardMedia, withStyles, Divider } from '@material-ui/core';
 import { Paper } from '@material-ui/core';
 import { ISkill, mySkills } from '../skillsData';
+
+import Radio, { RadioProps } from '@material-ui/core/Radio';
+import SkillLevel from './SkillLevel';
+const StyleRadio = withStyles({
+    root: {
+        padding: '0',
+    },
+    label: {
+        textTransform: 'capitalize',
+    },
+})(Radio);
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -33,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: 12,
         },
         media: {
-          height: 140,
+            height: 140,
         },
     })
 );
@@ -44,9 +55,19 @@ export interface ISkillTableProps {
     imagelink: string;
 }
 
-export default function SkillTableTemplateTech(props: ISkillTableProps ) {
+export default function SkillTableTemplateTech(props: ISkillTableProps) {
     const classes = useStyles();
     let skills: ISkill[] = props.data;
+
+    let sortedSkills: ISkill[] = skills.sort((a: ISkill, b: ISkill) => {
+        if (a.level > b.level) {
+            return -1;
+        }
+        if (a.level < b.level) {
+            return 1;
+        }
+        return 0;
+    });
 
 
     return (
@@ -63,12 +84,20 @@ export default function SkillTableTemplateTech(props: ISkillTableProps ) {
                     <CardContent>
 
                         <Typography variant="body2" component="p">
-                            {skills.map(skill => (
-                                <Chip
-                                    label={skill.name}
-                                    className={classes.chip}
-                                />
-                            ))}
+                            {
+                                sortedSkills.map(skill => (
+                                    <Box m={3}>
+                                        <Chip
+                                            label={skill.name}
+                                            className={classes.chip}
+                                        />
+
+                                        <SkillLevel level={parseInt(skill.level)} />
+
+                                        <Divider className="Skill" />
+                                    </Box>
+
+                                ))}
                         </Typography>
                     </CardContent>
                 </Card>
@@ -79,4 +108,5 @@ export default function SkillTableTemplateTech(props: ISkillTableProps ) {
         </Container>
     );
 }
+
 

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function SkillsByTechType() {
+export default function Skills_ByTechCategory() {
   let skills: ISkill[] = mySkills;
 
   let skillsByTag: any[];

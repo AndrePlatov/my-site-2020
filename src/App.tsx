@@ -14,7 +14,7 @@ import {
 import SkillTableTemplate from './components/skills/Table/SkillsTableTemplate';
 import { mySkills } from './components/skills/skillsData';
 import SkillsByType from './components/skills/Table/SkillsByType';
-import SkillsByTechType from './components/skills/Table/SkillsByTechType';
+import Skills_ByTechCategory from './components/skills/Table/Skills_ByTechCategory';
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
             </Route>
             
             <Route path="/skills-by-tech-type">
-              <SkillsByTechType></SkillsByTechType>
+              <Skills_ByTechCategory></Skills_ByTechCategory>
             </Route>
           </Switch>
         </div>
