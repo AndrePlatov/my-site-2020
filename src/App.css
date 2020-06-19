@@ -171,3 +171,7 @@ h2:first-letter {
 .MuiCardMedia-root {
   margin-bottom: 5px;
 }
+
+.MuiTooltip-popper.LevelBox{
+  font-size: 2rem;
+}
