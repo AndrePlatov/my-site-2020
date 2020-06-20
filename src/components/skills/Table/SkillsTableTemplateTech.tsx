@@ -14,7 +14,7 @@ import { Paper } from '@material-ui/core';
 import { ISkill, mySkills } from '../skillsData';
 
 import Radio, { RadioProps } from '@material-ui/core/Radio';
-import SkillLevel from './SkillLevel';
+import SkillLevel from '../Skill-Level/Skill-Level';
 const StyleRadio = withStyles({
     root: {
         padding: '0',
@@ -92,7 +92,7 @@ export default function SkillTableTemplateTech(props: ISkillTableProps) {
                                             className={classes.chip}
                                         />
 
-                                        <SkillLevel level={parseInt(skill.level)} />
+                                        <SkillLevel skill={skill} />
 
                                         <Divider className="Skill" />
                                     </Box>
