@@ -15,6 +15,7 @@ import { ISkill, mySkills } from '../skillsData';
 
 import Radio from '@material-ui/core/Radio';
 import { green, yellow } from '@material-ui/core/colors';
+import Skill_Level_Unit, { ISkill_Level_UnitProps } from '../Skill-Level/Skill-Level-Unit';
 const StyleRadio = withStyles({
     root: {
         padding: '0',
@@ -62,7 +63,7 @@ export default function SkillLevel(props: ISkillLevelProps) {
     const handlePopoverClose2 = () => {
         setAnchorEl2(null);
     };
-     const handlePopoverOpen3 = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const handlePopoverOpen3 = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
         setAnchorEl3(event.currentTarget);
     };
 
@@ -74,31 +75,46 @@ export default function SkillLevel(props: ISkillLevelProps) {
     const open2 = Boolean(anchorEl2);
     const open3 = Boolean(anchorEl3);
 
+
+    const levelOneProps: ISkill_Level_UnitProps = {
+        skill_Level: level,
+        unitLevel: 1,
+        className: "levelOne",
+        popoverIsOpen: open,
+        popoverId: "mouse-over-popover-level-1",
+        popoverOpenHandler: handlePopoverOpen,
+        popoverCloseHandler: handlePopoverClose
+    }
+
+    const levelTwoProps: ISkill_Level_UnitProps = {
+        skill_Level: level,
+        unitLevel: 2,
+        className: "levelTwo",
+        popoverIsOpen: open2,
+        popoverId: "mouse-over-popover-level-2",
+        popoverOpenHandler: handlePopoverOpen2,
+        popoverCloseHandler: handlePopoverClose2
+    }
+
+    const levelThreeProps: ISkill_Level_UnitProps = {
+        skill_Level: level,
+        unitLevel: 3,
+        className: "levelThree",
+        popoverIsOpen: open3,
+        popoverId: "mouse-over-popover-level-3",
+        popoverOpenHandler: handlePopoverOpen3,
+        popoverCloseHandler: handlePopoverClose3
+    }
+
     let content;
     switch (level) {
         case 1: {
             content = (
                 <Box className="LevelBox">
 
-
-                        <StyleRadio aria-owns={open ? 'mouse-over-popover-level-1' : undefined}
-                            aria-haspopup="true"
-                            onMouseEnter={handlePopoverOpen}
-                            onMouseLeave={handlePopoverClose} checked={true} className="levelOne" />
-                   
-                        <StyleRadio 
-                        aria-owns={open2 ? 'mouse-over-popover-level-2' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen2}
-                        onMouseLeave={handlePopoverClose2} 
-                        checked={false} className="levelTwo" />
-
-                        <StyleRadio 
-                        aria-owns={open3 ? 'mouse-over-popover-level-3' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen3}
-                        onMouseLeave={handlePopoverClose3} 
-                        checked={false} className="levelThree" />
+                    <Skill_Level_Unit {...levelOneProps} />
+                    <Skill_Level_Unit {...levelTwoProps} />
+                    <Skill_Level_Unit {...levelThreeProps} />
 
                     <Popover
                         id="mouse-over-popover-level-1"
@@ -111,11 +127,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'left',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'right',
-                          }}
+                        }}
                         onClose={handlePopoverClose}
                         disableRestoreFocus
                     >
@@ -132,11 +148,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'center',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
-                          }}
+                        }}
                         onClose={handlePopoverClose2}
                         disableRestoreFocus
                     >
@@ -153,11 +169,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'right',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'left',
-                          }}
+                        }}
                         onClose={handlePopoverClose3}
                         disableRestoreFocus
                     >
@@ -170,26 +186,10 @@ export default function SkillLevel(props: ISkillLevelProps) {
         case 2: {
             content = (
                 <Box className="LevelBox">
-                  
 
-                  <StyleRadio aria-owns={open ? 'mouse-over-popover-level-1' : undefined}
-                            aria-haspopup="true"
-                            onMouseEnter={handlePopoverOpen}
-                            onMouseLeave={handlePopoverClose} checked={true} className="levelOne" />
-                   
-                        <StyleRadio 
-                        aria-owns={open2 ? 'mouse-over-popover-level-2' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen2}
-                        onMouseLeave={handlePopoverClose2} 
-                        checked={true} className="levelTwo" />
-
-                        <StyleRadio 
-                        aria-owns={open3 ? 'mouse-over-popover-level-3' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen3}
-                        onMouseLeave={handlePopoverClose3} 
-                        checked={false} className="levelThree" />
+                    <Skill_Level_Unit {...levelOneProps} />
+                    <Skill_Level_Unit {...levelTwoProps} />
+                    <Skill_Level_Unit {...levelThreeProps} />
 
                     <Popover
                         id="mouse-over-popover-level-1"
@@ -202,11 +202,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'left',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'right',
-                          }}
+                        }}
                         onClose={handlePopoverClose}
                         disableRestoreFocus
                     >
@@ -223,11 +223,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'center',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
-                          }}
+                        }}
                         onClose={handlePopoverClose2}
                         disableRestoreFocus
                     >
@@ -244,11 +244,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'right',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'left',
-                          }}
+                        }}
                         onClose={handlePopoverClose3}
                         disableRestoreFocus
                     >
@@ -261,26 +261,10 @@ export default function SkillLevel(props: ISkillLevelProps) {
         case 3: {
             content = (
                 <Box className="LevelBox">
-                    
 
-                    <StyleRadio aria-owns={open ? 'mouse-over-popover-level-1' : undefined}
-                            aria-haspopup="true"
-                            onMouseEnter={handlePopoverOpen}
-                            onMouseLeave={handlePopoverClose} checked={true} className="levelOne" />
-                   
-                        <StyleRadio 
-                        aria-owns={open2 ? 'mouse-over-popover-level-2' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen2}
-                        onMouseLeave={handlePopoverClose2} 
-                        checked={true} className="levelTwo" />
-
-                        <StyleRadio 
-                        aria-owns={open3 ? 'mouse-over-popover-level-3' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen3}
-                        onMouseLeave={handlePopoverClose3} 
-                        checked={true} className="levelThree" />
+                    <Skill_Level_Unit {...levelOneProps} />
+                    <Skill_Level_Unit {...levelTwoProps} />
+                    <Skill_Level_Unit {...levelThreeProps} />
 
                     <Popover
                         id="mouse-over-popover-level-1"
@@ -293,11 +277,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'left',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'right',
-                          }}
+                        }}
                         onClose={handlePopoverClose}
                         disableRestoreFocus
                     >
@@ -314,11 +298,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'center',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
-                          }}
+                        }}
                         onClose={handlePopoverClose2}
                         disableRestoreFocus
                     >
@@ -335,11 +319,11 @@ export default function SkillLevel(props: ISkillLevelProps) {
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'right',
-                          }}
-                          transformOrigin={{
+                        }}
+                        transformOrigin={{
                             vertical: 'top',
                             horizontal: 'left',
-                          }}
+                        }}
                         onClose={handlePopoverClose3}
                         disableRestoreFocus
                     >
