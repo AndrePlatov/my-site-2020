@@ -16,7 +16,6 @@ import { ISkill, mySkills } from '../skillsData';
 import Radio from '@material-ui/core/Radio';
 import { green, yellow } from '@material-ui/core/colors';
 import Skill_Level_Unit, { ISkill_Level_UnitProps } from '../Skill-Level/Skill-Level-Unit';
-import Skill_Level_Popover, { ISkill_Level_PopoverProps } from '../Skill-Level/Skill-Level-Popover';
 const StyleRadio = withStyles({
     root: {
         padding: '0',
@@ -108,59 +107,6 @@ export default function SkillLevel(props: ISkillLevelProps) {
         popoverOpenHandler: handlePopoverOpen3,
         popoverCloseHandler: handlePopoverClose3
     }
-
-
-    const levelOnePopoverProps: ISkill_Level_PopoverProps = {
-        text: "Can find my way around",
-        anchorElement: anchorEl,
-        isOpen: open,
-        id: "mouse-over-popover-level-1 " + id,
-        openHandler: handlePopoverOpen,
-        closeHandler: handlePopoverClose,
-        anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'left',
-        },
-        transformOrigin: {
-            vertical: 'top',
-            horizontal: 'right',
-        }
-    };
-
-    const levelTwoPopoverProps: ISkill_Level_PopoverProps = {
-        text: "Quite familiar",
-        anchorElement: anchorEl2,
-        isOpen: open2,
-        id: "mouse-over-popover-level-2 " + id,
-        openHandler: handlePopoverOpen2,
-        closeHandler: handlePopoverClose2,
-        anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'center',
-        },
-        transformOrigin: {
-            vertical: 'top',
-            horizontal: 'center',
-        }
-    };
-
-    const levelThreePopoverProps: ISkill_Level_PopoverProps = {
-        text: "Easily solve complex problems",
-        anchorElement: anchorEl3,
-        isOpen: open3,
-        id: "mouse-over-popover-level-3 " + id,
-        openHandler: handlePopoverOpen3,
-        closeHandler: handlePopoverClose3,
-        anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'right',
-        },
-        transformOrigin: {
-            vertical: 'top',
-            horizontal: 'left',
-        }
-    };
-
 
 
     let content;
