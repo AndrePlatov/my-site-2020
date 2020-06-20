@@ -92,7 +92,7 @@ export default function SkillTableTemplateTech(props: ISkillTableProps) {
                                             className={classes.chip}
                                         />
 
-                                        <SkillLevel level={parseInt(skill.level)} />
+                                        <SkillLevel skill={skill} />
 
                                         <Divider className="Skill" />
                                     </Box>

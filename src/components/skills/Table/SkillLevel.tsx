@@ -16,6 +16,7 @@ import { ISkill, mySkills } from '../skillsData';
 import Radio from '@material-ui/core/Radio';
 import { green, yellow } from '@material-ui/core/colors';
 import Skill_Level_Unit, { ISkill_Level_UnitProps } from '../Skill-Level/Skill-Level-Unit';
+import Skill_Level_Popover, { ISkill_Level_PopoverProps } from '../Skill-Level/Skill-Level-Popover';
 const StyleRadio = withStyles({
     root: {
         padding: '0',
@@ -37,13 +38,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 export interface ISkillLevelProps {
-    level: number
+    skill: ISkill
 }
 
 
 // TODO: replace tooltip with Popover https://material-ui.com/components/popover/
 export default function SkillLevel(props: ISkillLevelProps) {
-    let level = props.level;
+    let level = parseInt(props.skill.level);
+    let id = parseInt(props.skill.id);
+
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
     const [anchorEl2, setAnchorEl2] = React.useState<HTMLElement | null>(null);
@@ -106,241 +109,134 @@ export default function SkillLevel(props: ISkillLevelProps) {
         popoverCloseHandler: handlePopoverClose3
     }
 
+
+    const levelOnePopoverProps: ISkill_Level_PopoverProps = {
+        text: "Can find my way around",
+        anchorElement: anchorEl,
+        isOpen: open,
+        id: "mouse-over-popover-level-1 " + id,
+        openHandler: handlePopoverOpen,
+        closeHandler: handlePopoverClose,
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'left',
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'right',
+        }
+    };
+
+    const levelTwoPopoverProps: ISkill_Level_PopoverProps = {
+        text: "Quite familiar",
+        anchorElement: anchorEl2,
+        isOpen: open2,
+        id: "mouse-over-popover-level-2 " + id,
+        openHandler: handlePopoverOpen2,
+        closeHandler: handlePopoverClose2,
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'center',
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'center',
+        }
+    };
+
+    const levelThreePopoverProps: ISkill_Level_PopoverProps = {
+        text: "Easily solve complex problems",
+        anchorElement: anchorEl3,
+        isOpen: open3,
+        id: "mouse-over-popover-level-3 " + id,
+        openHandler: handlePopoverOpen3,
+        closeHandler: handlePopoverClose3,
+        anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'right',
+        },
+        transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left',
+        }
+    };
+
+
+
     let content;
-    switch (level) {
-        case 1: {
-            content = (
-                <Box className="LevelBox">
+    content = (
+        <Box className="LevelBox">
 
-                    <Skill_Level_Unit {...levelOneProps} />
-                    <Skill_Level_Unit {...levelTwoProps} />
-                    <Skill_Level_Unit {...levelThreeProps} />
+            <Skill_Level_Unit {...levelOneProps} />
+            <Skill_Level_Unit {...levelTwoProps} />
+            <Skill_Level_Unit {...levelThreeProps} />
 
-                    <Popover
-                        id="mouse-over-popover-level-1"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open}
-                        anchorEl={anchorEl}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        onClose={handlePopoverClose}
-                        disableRestoreFocus
-                    >
-                        <Typography>Can find my way around</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-2"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open2}
-                        anchorEl={anchorEl2}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'center',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        onClose={handlePopoverClose2}
-                        disableRestoreFocus
-                    >
-                        <Typography>Quite familiar</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-3"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open3}
-                        anchorEl={anchorEl3}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        onClose={handlePopoverClose3}
-                        disableRestoreFocus
-                    >
-                        <Typography>Easily solve complex problems</Typography>
-                    </Popover>
-                </Box>
-            );
-            break;
-        }
-        case 2: {
-            content = (
-                <Box className="LevelBox">
+            <Popover
+                id="mouse-over-popover-level-1"
+                className={classes.popover}
+                classes={{
+                    paper: classes.paper,
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+            >
+                <Typography>Can find my way around</Typography>
+            </Popover>
 
-                    <Skill_Level_Unit {...levelOneProps} />
-                    <Skill_Level_Unit {...levelTwoProps} />
-                    <Skill_Level_Unit {...levelThreeProps} />
-
-                    <Popover
-                        id="mouse-over-popover-level-1"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open}
-                        anchorEl={anchorEl}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        onClose={handlePopoverClose}
-                        disableRestoreFocus
-                    >
-                        <Typography>Can find my way around</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-2"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open2}
-                        anchorEl={anchorEl2}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'center',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        onClose={handlePopoverClose2}
-                        disableRestoreFocus
-                    >
-                        <Typography>Quite familiar</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-3"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open3}
-                        anchorEl={anchorEl3}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        onClose={handlePopoverClose3}
-                        disableRestoreFocus
-                    >
-                        <Typography>Easily solve complex problems</Typography>
-                    </Popover>
-                </Box>
-            );
-            break;
-        }
-        case 3: {
-            content = (
-                <Box className="LevelBox">
-
-                    <Skill_Level_Unit {...levelOneProps} />
-                    <Skill_Level_Unit {...levelTwoProps} />
-                    <Skill_Level_Unit {...levelThreeProps} />
-
-                    <Popover
-                        id="mouse-over-popover-level-1"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open}
-                        anchorEl={anchorEl}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        onClose={handlePopoverClose}
-                        disableRestoreFocus
-                    >
-                        <Typography>Can find my way around</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-2"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open2}
-                        anchorEl={anchorEl2}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'center',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        onClose={handlePopoverClose2}
-                        disableRestoreFocus
-                    >
-                        <Typography>Quite familiar</Typography>
-                    </Popover>
-                    <Popover
-                        id="mouse-over-popover-level-3"
-                        className={classes.popover}
-                        classes={{
-                            paper: classes.paper,
-                        }}
-                        open={open3}
-                        anchorEl={anchorEl3}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        onClose={handlePopoverClose3}
-                        disableRestoreFocus
-                    >
-                        <Typography>Easily solve complex problems</Typography>
-                    </Popover>
-                </Box>
-            );
-            break;
-        }
-
-        default: {
-            content = <div></div>;
-            break;
-        }
-
-    }
-
+            <Popover
+                id="mouse-over-popover-level-2"
+                className={classes.popover}
+                classes={{
+                    paper: classes.paper,
+                }}
+                open={open2}
+                anchorEl={anchorEl2}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+                onClose={handlePopoverClose2}
+                disableRestoreFocus
+            >
+                <Typography>Quite familiar</Typography>
+            </Popover>
+            <Popover
+                id="mouse-over-popover-level-3"
+                className={classes.popover}
+                classes={{
+                    paper: classes.paper,
+                }}
+                open={open3}
+                anchorEl={anchorEl3}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                }}
+                onClose={handlePopoverClose3}
+                disableRestoreFocus
+            >
+                <Typography>Easily solve complex problems</Typography>
+            </Popover>
+        </Box>
+    );
 
     return content;
 }
