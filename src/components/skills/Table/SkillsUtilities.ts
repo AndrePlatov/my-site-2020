@@ -35,7 +35,7 @@ let imagelinks: any = {
   "Operations":"https://docs.microsoft.com/en-us/azure/azure-monitor/media/visualizations/dashboard.png",
   "Integration":"https://cdn.buttercms.com/ZQxorY1TQnKWLKf9H6QH",
   "Web Solutions":"https://tr4.cbsistatic.com/hub/i/r/2019/06/12/5bb131b4-fd3f-4c95-a964-1f31d943e1c9/resize/1200x/cf1308c77b2114cc2368bd502199e8e6/istock-970952920industrycloud1.jpg",
-  "Data Management":"https://cdn2.iconfinder.com/data/icons/programming-50/64/206_programming-sql-data-database-512.png"
+  "Data Management": "https://www.integrationworx.ca/sites/default/files/glazed-cms-media/master-data-management-main-image.png?fid=1646"
 };
 
   skills.forEach(skill => {
