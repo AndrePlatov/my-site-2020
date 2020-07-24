@@ -1,20 +1,12 @@
+import { AppBar, Box, Container, createStyles, makeStyles, Tab, Tabs, Theme, Toolbar, Typography } from '@material-ui/core';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { SkillsNavigator } from './components/skills/Grid/SkillsNavigator';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import SkillTableTemplate from './components/skills/Table/SkillsTableTemplate';
 import { mySkills } from './components/skills/skillsData';
 import SkillsByType from './components/skills/Table/SkillsByType';
+import SkillTableTemplate from './components/skills/Table/SkillsTableTemplate';
 import Skills_ByTechCategory from './components/skills/Table/Skills_ByTechCategory';
-import { AppBar, Toolbar, Typography, makeStyles, createStyles, Theme, Box, Tabs, Tab, Container } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -64,7 +56,7 @@ function a11yProps(index: any) {
 
 function App() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(3);
+  const [value, setValue] = React.useState(2);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -77,13 +69,13 @@ function App() {
       <AppBar position="fixed">
         <Toolbar variant="dense" >
 
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h2" color="inherit">
             Andre Platov
               </Typography>
-              <div className={classes.grow} />
+          <div className={classes.grow} />
           <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
             <Tab label="Skills Grid" {...a11yProps(0)} />
-            <Tab label="Skills Table" {...a11yProps(1)} />
+            <Tab label="All Skills" {...a11yProps(1)} />
             <Tab label="Skills by Category" {...a11yProps(2)} />
             <Tab label="Skills by Tech Category" {...a11yProps(3)} />
           </Tabs>
@@ -96,7 +88,9 @@ function App() {
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <h2>All Skills</h2>
+          <Typography variant="h4">
+            All Skills
+          </Typography>
           <SkillTableTemplate data={mySkills}></SkillTableTemplate>
         </TabPanel>
 

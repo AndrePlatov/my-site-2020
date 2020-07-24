@@ -1,21 +1,10 @@
-import Chip from '@material-ui/core/Chip';
-import * as React from "react";
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { palette } from '@material-ui/system';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Grid, Box, Card, CardContent, Typography, CardMedia, withStyles, Tooltip, Popover } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
-import { ISkill, mySkills } from '../skillsData';
-
+import { Box, Popover, Typography, withStyles } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
-import { green, yellow } from '@material-ui/core/colors';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import * as React from "react";
 import Skill_Level_Unit, { ISkill_Level_UnitProps } from '../Skill-Level/Skill-Level-Unit';
+import { ISkill } from '../skillsData';
+
 const StyleRadio = withStyles({
     root: {
         padding: '0',

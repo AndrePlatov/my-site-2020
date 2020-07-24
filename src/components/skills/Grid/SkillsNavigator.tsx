@@ -1,9 +1,7 @@
-import * as React from "react";
-import { mySkills } from "../skillsData";
-import SkillsGrid from "./SkillsGrid";
-import TextField from '@material-ui/core/TextField';
 import { Box } from "@material-ui/core";
-import SkillTableTemplate from "../Table/SkillsTableTemplate";
+import TextField from '@material-ui/core/TextField';
+import * as React from "react";
+import SkillsGrid from "./SkillsGrid";
 
 
 interface SkillsNavigatorState { filter: string };

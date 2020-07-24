@@ -1,17 +1,16 @@
+import { Box, Paper } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
-import * as React from "react";
+import Container from '@material-ui/core/Container';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { palette } from '@material-ui/system';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Grid, Box } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
-import { ISkill, mySkills } from '../skillsData';
+import * as React from "react";
+import { ISkill } from '../skillsData';
+import SkillCategoryIcon from './SkillCategoryIcon';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -46,18 +45,22 @@ export default function SkillTableTemplate(props: ISkillTableProps) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {skills.map(skill => (
-                                <TableRow key={skill.name}>
-                                    <TableCell align="right" component="th" scope="row">
-                                        {skill.name}
-                                    </TableCell>
-                                    <TableCell >{skill.tags.split(",").map(tag => (
-                                        <Chip
-                                            label={tag}
-                                            className={classes.chip}
-                                        />))}</TableCell>
-                                </TableRow>
-                            ))}
+                            {
+                                skills.map(skill => (
+                                    <TableRow key={skill.name}>
+                                        <TableCell align="right" component="th" scope="row">
+                                            {skill.name}
+                                        </TableCell>
+                                        <TableCell >
+                                            {
+                                                skill.tags.split(",").map(tag => (
+                                                    <SkillCategoryIcon tagName={tag}/>
+                                                ))
+                                            }
+                                        </TableCell>
+                                    </TableRow>
+                                ))
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>

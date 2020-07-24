@@ -1,4 +1,4 @@
-body {padding-top: 56px;}
+body {padding-top: 172px;}
 
 h2 {
   padding-top: 3rem;
@@ -121,7 +121,11 @@ h2:first-letter {
 
 
 .bg-black{
-  background-color: antiquewhite;
+  background-color: #757de8;
+}
+
+.bg-black th {
+  color: aliceblue;
 }
 
 .levelOne.MuiRadio-colorSecondary.Mui-checked{
@@ -183,4 +187,8 @@ h2:first-letter {
 
 .MuiTooltip-popper.LevelBox{
   font-size: 2rem;
+}
+
+.tagIconBox{
+  font-size: 1.2em;
 }
